@@ -4,6 +4,7 @@ var password
 
 const title = document.getElementById("title")
 const  button = document.getElementById("continue")
+const  switchBtn = document.getElementById("switch")
 
 
 function switcher(){
@@ -11,10 +12,12 @@ function switcher(){
         state="signup"
         title.textContent = "Create A New Account"
         button.textContent = "Create Account"
+        switchBtn.textContent = "Login To Account"
     }
-else{
+    else{
         state="login"
         title.textContent = "Log Into Your Account"
         button.textContent = "Log In"
+        switchBtn.textContent = "Create An Account"
     }
 }

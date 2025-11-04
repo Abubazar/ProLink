@@ -65,7 +65,7 @@ a{
     color: rgb(82, 82, 82);
     max-width: max-content;
     border: 0;
-    background-color: none;
+    background-color: white;
 }
 
 #switch:hover{
