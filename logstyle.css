@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: monospace;
+    color: rgb(65, 255, 151);
+}
+
+.dialog{
+    padding: 5px;
+    background-color: white;
+    border-radius: 20px;
+}
