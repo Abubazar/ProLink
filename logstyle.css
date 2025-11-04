@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "meda" ;
+    src: url("font.ttf") format("truetype");
+}
+
 body{
     margin: 0;
     background:linear-gradient(to bottom, rgb(65, 255, 151), rgb(250, 201, 127));
@@ -6,7 +11,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: monospace;
+    font-family:"meda";
     color: rgb(100, 100, 100);
 }
 
@@ -22,28 +27,20 @@ body{
 .dialog label{
     margin-top: 15px;
     padding: 4px;
-    padding-right:10px ;
-    padding-left:10px ;
-    background-color: rgb(247, 146, 63);
-    max-width: fit-content;
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 .dialog input{
-    border: none;
-    background-color: rgb(192, 192, 192);
+    border: 2px solid grey;
     padding: 10px;
     border-radius: 10px;
-    border-top-left-radius: 0px;
+
 }
 
 button{
     margin-top: 8px;
-    border: 0px;
+    border: 0;
     background-color: rgb(247, 146, 63);
     color: white;
     padding: 10px;
-    border-radius: 100px;
+    border-radius: 10px;
 }
