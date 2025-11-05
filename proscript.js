@@ -40,8 +40,11 @@ const urlLink = document.getElementById("urlLink")
 const titleError = document.getElementById("titleError")
 const urlError = document.getElementById("urlError")
 
+var username
+
 if (localStorage.getItem("username")) {
   userText.textContent=localStorage.getItem("username")
+  username = localStorage.getItem("username")
 }
 
 var answer = null
@@ -59,6 +62,7 @@ function addLink(){
 function cancel(){
     miniDialog.style.visibility = "hidden"
 }
+const linksRef = firebase.database().ref("links/"+username);
 
 function accept(){
     if (verAnswer.value == answer){
@@ -66,11 +70,24 @@ function accept(){
         else{
             if (urlLink.value==""){urlError.style.display="inline"; titleError.style.display="none"}
             else{
-                miniDialog.style.visibility = "hidden"
+                linksRef.push({
+                    title:titleLink.value,
+                    link:urlLink.value
+                })
+                
             }
         }
     }
 }
+
+linksRef.on("child_added", (snapshot) => {
+  const data = snapshot.val();
+  if (data.title == titleLink.value) {
+    miniDialog.style.visibility = "hidden";
+  }
+});
+
+
 
 var logLatch = false
 function logout(){
