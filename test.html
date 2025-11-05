@@ -78,9 +78,9 @@
         const list = document.getElementById('list')
         const copy = document.getElementById('can')
         const li = copy.cloneNode(true)
-        li.querySelector('#carn')
+        li.querySelector('#carn').textContent = item +" by "+ key
         console.log(item)
-        list.textContent += item +" by "+ key
+        list.appendChild(li)
     })
 
 </script>
