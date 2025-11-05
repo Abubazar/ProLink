@@ -78,3 +78,7 @@ a{
     color: rgb(247, 108, 108);
     margin-top: 5px;
 }
+
+#userwarn ,#passwarn{
+    display: none;
+}

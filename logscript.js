@@ -46,6 +46,9 @@ const  passwordData = document.getElementById("password")
 warn.style.display = "none"
 
 function switcher(){
+    document.getElementById('userwarn').style.display = "none"
+    document.getElementById('passwarn').style.display = "none"
+
     if (state=="login"){
         state="signup"
         title.textContent = "Create A New Account"
@@ -62,19 +65,79 @@ function switcher(){
     }
 }
 
+firebase.auth().signOut()
+
 const names =[]
 
-function log(){
+function log() {
+  const username = usernameData.value.trim();
+  const password = passwordData.value.trim();
 
-    if (usernameData.value.length<5){document.getElementById('userwarn').display="block"}
-    else if (passwordData.value.length<5){document.getElementById('passwarn').display="block"}
-    firebase.auth().signInAnonymously().then(() =>{
-    
-        firebase.database().ref("users/abubazar").on("child_added", (snapshot) =>{
-        const users = snapshot.val().text
-        names.push(users)
-        console.log(names)
+  const userWarn = document.getElementById('userwarn');
+  const passWarn = document.getElementById('passwarn');
 
-    })
-    })
+  userWarn.style.display = "none";
+  passWarn.style.display = "none";
+
+  if (username.length <= 5) {
+    userWarn.style.display = "block";
+    userWarn.textContent = "Username too short";
+    return;
+  }
+  if (password.length <= 7) {
+    passWarn.style.display = "block";
+    passWarn.textContent = "Password too short";
+    return;
+  }
+
+  const usersRef = firebase.database().ref("users/abubazar");
+
+  if (state === "signup") {
+
+    usersRef.once("value").then(snapshot => {
+      let exists = false;
+      snapshot.forEach(child => {
+        const data = child.val();
+        if (data.username === username) {
+          exists = true;
+        }
+      });
+
+      if (exists) {
+        userWarn.style.display = "block";
+        userWarn.textContent = "Username already taken";
+      } else {
+
+        firebase.auth().signInAnonymously()
+          .then(() => {
+            console.log("Anonymous account created");
+
+            usersRef.push({
+              username: username,
+              password: password
+            });
+          })
+          .catch(err => console.error("Auth error:", err));
+      }
+    });
+  }
+
+  else if (state === "login") {
+    usersRef.once("value").then(snapshot => {
+      let found = false;
+      snapshot.forEach(child => {
+        const data = child.val();
+        if (data.username === username && data.password === password) {
+          found = true;
+        }
+      });
+
+      if (found) {
+        console.log("Sign in successful");
+      } else {
+        passWarn.style.display = "block";
+        passWarn.textContent = "Invalid username or password";
+      }
+    });
+  }
 }
