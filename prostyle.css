@@ -57,6 +57,7 @@ body{
     position: absolute;
     top: 0; left: 0;
     background-color: rgba(0, 0, 0, 0.452);
+    /* visibility: hidden; */
 }
 
 .dia{
@@ -97,4 +98,32 @@ body{
 
 .miniButtons button:hover{
     background-color: rgb(194, 193, 193);
+}
+
+#addlink-content{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#addlink-content input{
+    border-radius: 6px;
+    border: 1px solid grey;
+    padding: 5px;
+    font-family: meda;
+}
+
+#humanVer{
+    margin: 15px;
+}
+
+#verAnswer{
+    border-radius: 6px;
+    border: 1px solid grey;
+    padding: 5px;
+    width: 40px;
+    font-family: meda;
+    color: rgb(82, 82, 82);
 }

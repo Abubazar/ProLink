@@ -12,7 +12,7 @@
         <a id="user">Username</a>
         <div class="addSection">
             <label>Add New Link </label>
-            <button id="addLink">+</button>
+            <button id="addLink" onclick="addLink()">+</button>
         </div>
         <div>
         <label>My Links</label>
@@ -23,12 +23,25 @@
     <div id="miniDialog">
         <div class="dia">
             <a id="miniTitle">Title</a>
+            <div id="addlink-content">
+                <label>Link Title</label>
+                <input type="text" placeholder="Super Cool Stuff">
+                <label>Link URL</label>
+                <input type="url" placeholder="https://cool-project-example.com">
+            </div>
+
+            <div id="humanVer">
+                <a id="verText">2+2</a><a> =</a>
+                <input id="verAnswer" type="number">
+            </div>
+
             <div class="miniButtons">
-                <button id="accept">Accept</button>
-                <button id="cancel">Cancel</button>
+                <button id="accept" onclick="accept()">Accept</button>
+                <button id="cancel" onclick="cancel()">Cancel</button>
             </div>
         </div>
     </div>
 
 </body>
+<script src="proscript.js"></script>
 </html>
