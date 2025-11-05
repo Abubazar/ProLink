@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "meda" ;
+    src: url("font.ttf") format("truetype");
+}
+
+body{
+    margin: 0;
+    background:linear-gradient(to bottom, rgb(65, 255, 151), rgb(250, 201, 127));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family:"meda";
+    color: rgb(100, 100, 100);
+}
+
+.dialog{
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addSection{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#addLink{
+    background-color: lightgreen;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    width:30px;
+    height: 30px;
+    font-size: x-large;
+}
+
+#addLink:hover{
+    background-color: rgb(11, 245, 116);
+}
