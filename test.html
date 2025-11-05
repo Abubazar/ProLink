@@ -18,7 +18,9 @@
 <body>
     <a>idk. testing some stuff</a>
     <input id="msg">
-    <button>send</button>
+    <input id="usr">
+    <div id="can"><a id="carn">none</a><button>stuff</button></div>
+    <button onclick="writeMsg(document.getElementById('msg').value,document.getElementById('usr').value)">send</button>
     <ol id="list"></ol>
     
 </body>
@@ -42,9 +44,43 @@
     };
     
     firebase.initializeApp(firebaseConfig)
+    var userDat
+    firebase.auth().onAuthStateChanged((user) =>{
+        if (user){
+            console.log("yes you are logged in")
+            userDat = user
+        }
+        else{
+            console.log("not logged")
+        }
+    })
 
-    firebase.auth().signInAnonymously().then(() =>{
-        console.log("logged In")
+    // firebase.auth().signInAnonymously().then(() =>{
+    //     console.log("logged In")
+    // })
+
+    const db = firebase.database()
+
+    const usr = "abubazar"
+    function writeMsg(msg,usr){
+        const msgRef = db.ref('users/'+usr)
+        msgRef.push({
+            text:msg,
+            user:usr
+        })
+    }
+
+    const refDb = firebase.database().ref("users/"+usr)
+
+    refDb.on("child_added", (snapshot) =>{
+        const key = snapshot.val().user
+        const item = snapshot.val().text
+        const list = document.getElementById('list')
+        const copy = document.getElementById('can')
+        const li = copy.cloneNode(true)
+        li.querySelector('#carn')
+        console.log(item)
+        list.textContent += item +" by "+ key
     })
 
 </script>
