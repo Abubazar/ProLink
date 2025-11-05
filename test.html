@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test firebase</title>
+</head>
+
+<style>
+    body{
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <a>idk. testing some stuff</a>
+    <input id="msg">
+    <button>send</button>
+    <ol id="list"></ol>
+    
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyCoHt7broeKSJ6m7_zU9dOQ-M7nu4kLF84",
+    authDomain: "pictoram-a.firebaseapp.com",
+    databaseURL: "https://pictoram-a-default-rtdb.firebaseio.com",
+    projectId: "pictoram-a",
+    storageBucket: "pictoram-a.firebasestorage.app",
+    messagingSenderId: "906801586543",
+    appId: "1:906801586543:web:4c553e8e6b77d689ac489a",
+    measurementId: "G-19HYV7CZWM"
+    };
+    
+    firebase.initializeApp(firebaseConfig)
+
+    firebase.auth().signInAnonymously().then(() =>{
+        console.log("logged In")
+    })
+
+</script>
+
+</html>
