@@ -46,3 +46,55 @@ body{
 #addLink:hover{
     background-color: rgb(11, 245, 116);
 }
+
+#miniDialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.534);
+}
+
+.dia{
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+#miniTitle{
+    font-size: large;
+    font-weight: bold;
+}
+
+.miniButtons{
+    display: flex;
+    gap: 4px;
+}
+
+.miniButtons button{
+    flex: 1;
+    background-color: rgb(206, 206, 206);
+    font-family: meda;
+    color: rgb(80, 80, 80);
+    font-weight: bold;
+    border: 0;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    letter-spacing: 1px;
+}
+
+#cancel{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 10px;
+}
+
+
+.miniButtons button:hover{
+    background-color: rgb(194, 193, 193);
+}
