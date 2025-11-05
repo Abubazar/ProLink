@@ -43,6 +43,7 @@ a{
     border: 1px solid grey;
     padding: 10px;
     border-radius: 10px;
+    font-family: meda;
 
 }
 
@@ -70,4 +71,10 @@ a{
 
 #switch:hover{
     color: blue;
+}
+
+#warning{
+    text-align: left;
+    color: rgb(247, 108, 108);
+    margin-top: 5px;
 }
