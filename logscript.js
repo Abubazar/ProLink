@@ -40,6 +40,9 @@ const  button = document.getElementById("continue")
 const  switchBtn = document.getElementById("switch")
 const  warn = document.getElementById("warning")
 
+const  usernameData = document.getElementById("username")
+const  passwordData = document.getElementById("password")
+
 warn.style.display = "none"
 
 function switcher(){
@@ -59,18 +62,19 @@ function switcher(){
     }
 }
 
+const names =[]
+
 function log(){
+
+    if (usernameData.value.length<5){document.getElementById('userwarn').display="block"}
+    else if (passwordData.value.length<5){document.getElementById('passwarn').display="block"}
     firebase.auth().signInAnonymously().then(() =>{
     
-        firebase.database().ref("usersnames/"+usr).on("child_added", (snapshot) =>{
-        const key = snapshot.val().user
-        const item = snapshot.val().text
-        const list = document.getElementById('list')
-        const copy = document.getElementById('can')
-        const li = copy.cloneNode(true)
-        li.querySelector('#carn').textContent = item +" by "+ key
-        console.log(item)
-        list.appendChild(li)
+        firebase.database().ref("users/abubazar").on("child_added", (snapshot) =>{
+        const users = snapshot.val().text
+        names.push(users)
+        console.log(names)
+
     })
     })
 }

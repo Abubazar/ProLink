@@ -11,11 +11,15 @@
         <a style="font-weight: bold; font-size:x-large; letter-spacing: 2px; color: rgb(65, 255, 151);"><b>ProLink</b></a>
         <a id="title">Log Into Your Account</a>
         <a id="warning">Careful! keep your username and password safe. There is currently no way to recover or change them if lost.</a>
+        
         <label>Username</label>
         <input type="text" id="username" placeholder="Username">
+        <a id="userwarn" style="text-align: left; color: rgb(255, 75, 75);">Username is too short!</a>
         
         <label>Password</label>
         <input type="password" id="password" placeholder="Password">
+        <a id="passwarn" style="text-align: left; color: rgb(255, 75, 75);">Password is too short!</a>
+        
         <button onclick="log()" id="continue">Log In</button>
         <button onclick="switcher()" id="switch">Create An Account</button>
     </div>
