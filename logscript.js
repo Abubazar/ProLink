@@ -131,8 +131,11 @@ function log() {
 
       if (found) {
         localStorage.setItem("username", username);
-        window.location.href = "profile.html";
-        console.log("Sign in successful");
+        firebase.auth().signInAnonymously()
+          .then(() => {
+            window.location.href = "profile.html";
+            console.log("Sign in successful");
+          })
       } else {
         passWarn.style.display = "block";
         passWarn.textContent = "Invalid username or password";

@@ -27,12 +27,18 @@ const db = firebase.database()
 
 const userText = document.getElementById("user")
 
+const logoutBtn = document.getElementById("logout")
+const acceptlog = document.getElementById("acceptlog")
+
 const miniDialog = document.getElementById("miniDialog")
 const verText = document.getElementById("verText")
 const verAnswer = document.getElementById("verAnswer")
 
 const titleLink = document.getElementById("titleLink")
 const urlLink = document.getElementById("urlLink")
+
+const titleError = document.getElementById("titleError")
+const urlError = document.getElementById("urlError")
 
 if (localStorage.getItem("username")) {
   userText.textContent=localStorage.getItem("username")
@@ -56,6 +62,30 @@ function cancel(){
 
 function accept(){
     if (verAnswer.value == answer){
-        miniDialog.style.visibility = "hidden"
+        if (titleLink.value==""){titleError.style.display="inline"; urlError.style.display="none"}
+        else{
+            if (urlLink.value==""){urlError.style.display="inline"; titleError.style.display="none"}
+            else{
+                miniDialog.style.visibility = "hidden"
+            }
+        }
     }
+}
+
+var logLatch = false
+function logout(){
+    if(logLatch){
+        acceptlog.style.display="none"
+        logoutBtn.textContent="Log Out"
+        logLatch=false
+    }
+    else{
+        acceptlog.style.display="inline"
+        logoutBtn.textContent="Cancel"
+        logLatch=true
+    }
+}
+
+function acceptlogout(){
+    firebase.auth().signOut()
 }

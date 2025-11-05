@@ -11,8 +11,8 @@
         <a style=" font-weight: bold; letter-spacing: 2px; font-size: x-large; color: rgb(65, 255, 151);">ProLink</a>
         <div>
             <a id="user">Username</a>
-            <button>Log Out</button>
-            <button>none</button>
+            <button id="logout" onclick="logout()">Log Out</button>
+            <button id="acceptlog" onclick="acceptlogout()">Yes. Log Out</button>
             </div>
         <div class="addSection">
             <label>Add New Link </label>
@@ -30,8 +30,11 @@
             <div id="addlink-content">
                 <label>Link Title</label>
                 <input id="titleLink" type="text" placeholder="Super Cool Stuff">
+                <a id="titleError" style=" display:none; color: rgb(252, 69, 69);">Invalid Title</a>
+                
                 <label>Link URL</label>
                 <input id="urlLink" type="url" placeholder="https://cool-project-example.com">
+                <a id="urlError" style="display: none; color: rgb(252, 69, 69);">Invalid URL Link</a>
             </div>
 
             <div id="humanVer">
