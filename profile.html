@@ -9,7 +9,11 @@
 <body>
     <div class="dialog">
         <a style=" font-weight: bold; letter-spacing: 2px; font-size: x-large; color: rgb(65, 255, 151);">ProLink</a>
-        <a id="user">Username</a>
+        <div>
+            <a id="user">Username</a>
+            <button>Log Out</button>
+            <button>none</button>
+            </div>
         <div class="addSection">
             <label>Add New Link </label>
             <button id="addLink" onclick="addLink()">+</button>
@@ -43,5 +47,9 @@
     </div>
 
 </body>
-<script src="proscript.js"></script>
+<script src="proscript.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
 </html>

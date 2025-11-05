@@ -17,15 +17,12 @@ firebase.auth().onAuthStateChanged((user) =>{
     if (user){
         console.log("yes you are logged in")
         userDat = user
+        window.location.href = "profile.html";
     }
     else{
         console.log("not logged")
     }
 })
-
-// firebase.auth().signInAnonymously().then(() =>{
-//     console.log("logged In")
-// })
 
 const db = firebase.database()
 
@@ -65,8 +62,6 @@ function switcher(){
     }
 }
 
-firebase.auth().signOut()
-
 const names =[]
 
 function log() {
@@ -90,7 +85,7 @@ function log() {
     return;
   }
 
-  const usersRef = firebase.database().ref("users/abubazar");
+  const usersRef = firebase.database().ref("users");
 
   if (state === "signup") {
 
@@ -111,6 +106,8 @@ function log() {
         firebase.auth().signInAnonymously()
           .then(() => {
             console.log("Anonymous account created");
+            localStorage.setItem("username", username);
+            window.location.href = "profile.html";
 
             usersRef.push({
               username: username,
@@ -133,6 +130,8 @@ function log() {
       });
 
       if (found) {
+        localStorage.setItem("username", username);
+        window.location.href = "profile.html";
         console.log("Sign in successful");
       } else {
         passWarn.style.display = "block";
