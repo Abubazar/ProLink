@@ -169,11 +169,19 @@ body{
 
 }
 
+.listHolder{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 #list{
     margin-top: 20px;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    background-color: red;
 }
 
 #list::-webkit-scrollbar {
