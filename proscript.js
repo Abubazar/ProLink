@@ -91,7 +91,26 @@ linksRef.on("child_added", (snapshot) => {
 
   const addToList = linkEntry.cloneNode(true)
   addToList.querySelector('#linkTxt').textContent = data.title
+  addToList.querySelector('#linkUrl').textContent = data.link
   linkList.appendChild(addToList)
+  addToList.style.display="flex"
+
+  addToList.querySelector('#linkDel').addEventListener("click", () => {
+    if(addToList.querySelector('#linkDel').textContent=="Delete"){
+      addToList.querySelector('#linkDelAccept').style.display="block"
+      addToList.querySelector('#linkDel').textContent="Cancel"
+    }
+    else{
+      addToList.querySelector('#linkDelAccept').style.display="none"
+      addToList.querySelector('#linkDel').textContent="Delete"
+    }
+  });
+
+  addToList.querySelector('#linkDelAccept').addEventListener("click", () => {
+    addToList.remove()
+    deleteFromDataBase(addToList.querySelector('#linkTxt').textContent,addToList.querySelector('#linkUrl').textContent)
+  });
+
 
   if (data.title == titleLink.value) {
     miniDialog.style.visibility = "hidden";
@@ -117,4 +136,16 @@ function logout(){
 
 function acceptlogout(){
     firebase.auth().signOut()
+}
+
+function deleteFromDataBase(title,link){
+  linksRef.once("value").then(snapshot => {
+  snapshot.forEach(child => {
+    const data = child.val();
+
+    if (data.title === title && data.link === link) {
+      linksRef.child(child.key).remove()
+    }
+  });
+});
 }
