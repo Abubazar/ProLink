@@ -169,6 +169,21 @@ body{
 
 }
 
+#list{
+    margin-top: 20px;
+    overflow-y: scroll;
+    gap: 10px;
+    background-color: red;
+}
+
+#list::-webkit-scrollbar {
+  display: none;
+}
+#list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 #listitem div{
     margin-left: auto;
     display: flex;

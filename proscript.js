@@ -83,10 +83,19 @@ function accept(){
     }
 }
 
+const linkList = document.getElementById("list")
+const linkEntry = document.getElementById("listitem")
+
 linksRef.on("child_added", (snapshot) => {
   const data = snapshot.val();
+
+  const addToList = linkEntry.cloneNode(true)
+  addToList.querySelector('#linkTxt').textContent = data.title
+  linkList.appendChild(addToList)
+
   if (data.title == titleLink.value) {
     miniDialog.style.visibility = "hidden";
+
   }
 });
 
