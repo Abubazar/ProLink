@@ -149,3 +149,11 @@ function deleteFromDataBase(title,link){
   });
 });
 }
+
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href)
+  document.getElementById("copyLink").textContent="Copied!"
+  setTimeout(() => {
+  document.getElementById("copyLink").textContent="Copy My Link"
+}, 2000);
+}

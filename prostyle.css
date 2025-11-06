@@ -95,11 +95,6 @@ body{
     border-bottom-right-radius: 10px;
 }
 
-
-.miniButtons button:hover{
-    background-color:  rgb(65, 255, 151);
-}
-
 #addlink-content{
     display: flex;
     flex-direction: column;
@@ -128,19 +123,22 @@ body{
     color: rgb(82, 82, 82);
 }
 
-#logout, #acceptlog{
+#logout, #acceptlog, #copyLink{
     background-color: rgb(11, 245, 116);
     border: none;
     color: white;
     padding: 8px;
     border-radius: 6px;
     font-weight: bold;
-
 }
 
 #acceptlog{
     background-color: rgb(255, 71, 71);
     display: none;
+}
+
+#copyLink{
+    margin-left: 40px;
 }
 
 #listitem {
@@ -216,4 +214,32 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.miniButtons button:hover{
+    background-color:  rgb(27, 153, 84);
+}
+
+#linkDel:hover{
+    background-color:  rgb(27, 153, 84);
+}
+
+#logout:hover{
+    background-color:  rgb(27, 153, 84);
+}
+
+#acceptlog:hover{
+    background-color:  rgb(153, 27, 27);
+}
+
+#copyLink:hover{
+    background-color:  rgb(27, 153, 84);
+}
+
+#addLink:hover{
+    background-color:  rgb(27, 153, 84);
+}
+
+#linkDelAccept:hover{
+    background-color:  rgb(153, 27, 27);
 }
