@@ -5,5 +5,33 @@
 
 body{
     margin: 0;
-    font-family: meda;
+    background:linear-gradient(to bottom, rgb(65, 255, 151), rgb(250, 201, 127));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family:"meda";
+    color: rgb(100, 100, 100);
+}
+
+#dialog{
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 40px;
+}
+
+#complete{
+    display: flex;
+    flex-direction: column;
+}
+
+#item{
+    display: none;
+    margin-top: 20px;
+}
+
+#item:hover{
+    color: rgb(75, 75, 255);
 }

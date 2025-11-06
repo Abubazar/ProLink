@@ -7,9 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <a>This User Could Not Be Found</a>
+    <div id="dialog">
+        <div id="notFound">
+            <a style="letter-spacing: 1px; font-weight: bold; color:rgb(27, 222, 115);">This User Could Not Be Found</a>
+            <p>ProLink is a site used to Encompass your many links into one simple sharable link. easily share all your social handles with just one link!</p>
+        </div>
+        <div id="complete">
+            <a id="user-name" style="letter-spacing: 1px; font-weight: bold; color:rgb(27, 222, 115);">user</a>
+            <u id="item">A special Link</u>
+        </div>
+        <a style="position: absolute; bottom: 15px; left: 15px; font-size: smaller;" href="login.html">Signup</a>
     </div>
     
 </body>
+<script src="script.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </html>
