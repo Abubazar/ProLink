@@ -13,15 +13,18 @@ measurementId: "G-19HYV7CZWM"
 
 firebase.initializeApp(firebaseConfig)
 var userDat
-firebase.auth().onAuthStateChanged((user) =>{
-    if (user){
-        userDat = user
-        
+firebase.auth().onAuthStateChanged((user) => {
+  // Check if Firebase Auth has initialized
+  if (navigator.onLine) {  // ✅ Only run if online
+    if (user) {
+      userDat = user;
+    } else {
+      window.location.href = "login.html";
     }
-    else{
-        window.location.href = "login.html";
-    }
-})
+  } else {
+    console.warn("Offline — skipping auth check.");
+  }
+});
 
 const db = firebase.database()
 
