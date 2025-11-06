@@ -243,3 +243,16 @@ body{
 #linkDelAccept:hover{
     background-color:  rgb(153, 27, 27);
 }
+
+
+@media (max-width: 600px) { 
+
+    #copyLink{
+        margin-top: 10px;
+    }
+
+    .dialog{
+        width: 70%;
+        font-size: small;
+    }
+}

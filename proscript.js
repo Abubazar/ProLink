@@ -151,7 +151,7 @@ function deleteFromDataBase(title,link){
 }
 
 function copyLink(){
-  navigator.clipboard.writeText(window.location.href)
+  navigator.clipboard.writeText(window.location.origin+"/index.html?u="+username)
   document.getElementById("copyLink").textContent="Copied!"
   setTimeout(() => {
   document.getElementById("copyLink").textContent="Copy My Link"
